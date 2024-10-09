@@ -273,10 +273,10 @@ def test_add_config_path(mutable_config):
     assert set_value == "/path/to/config.yaml"
 
     # Now a package:all setting
-    path = "packages:all:compiler:[gcc]"
+    path = "packages:all:target:[x86_64]"
     spack.config.add(path)
-    compilers = spack.config.get("packages")["all"]["compiler"]
-    assert "gcc" in compilers
+    targets = spack.config.get("packages")["all"]["target"]
+    assert "x86_64" in targets
 
     # Try quotes to escape brackets
     path = "config:install_tree:projections:cmake:\
